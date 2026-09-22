@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap');
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: #496277;
+  font-family: "DM Sans", sans-serif;
+  background: #f7fbfe;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url("assets/background.jpg") center top / cover fixed no-repeat;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: rgba(255,255,255,.48);
+  pointer-events: none;
+}
+
+main { width: 100%; }
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 18px;
+}
+
+.hero-card, .section-card, .letter-card {
+  width: min(720px, 94vw);
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(255,255,255,.95);
+  box-shadow: 0 20px 70px rgba(77,113,140,.16);
+  backdrop-filter: blur(7px);
+  border-radius: 32px;
+  text-align: center;
+}
+
+.hero-card { padding: 58px 28px; }
+
+.eyebrow, .tiny {
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: .72rem;
+  color: #7d9bb2;
+  font-weight: 600;
+}
+
+h1, h2 {
+  font-family: "Playfair Display", serif;
+  color: #41637b;
+  margin: 14px 0;
+}
+
+h1 { font-size: clamp(3rem, 10vw, 6rem); line-height: .98; }
+h1 span { color: #86aeca; }
+h2 { font-size: clamp(2rem, 6vw, 3.2rem); line-height: 1.08; }
+
+.subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto 26px;
+}
+
+.start-btn {
+  border: 0;
+  border-radius: 999px;
+  padding: 15px 27px;
+  background: #759bb5;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(79,121,150,.25);
+}
+.start-btn:active { transform: translateY(1px); }
+.hint { font-size: .78rem; opacity: .65; margin-top: 13px; }
+
+.music-btn {
+  position: fixed;
+  right: 18px;
+  top: 18px;
+  z-index: 20;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.9);
+  background: rgba(255,255,255,.78);
+  color: #55768f;
+  font-size: 1.35rem;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(70,110,140,.16);
+  backdrop-filter: blur(7px);
+}
+
+section { padding: 72px 18px; }
+.welcome, .letter { display: flex; justify-content: center; }
+
+.section-card, .letter-card {
+  padding: 48px 30px;
+}
+.section-card p, .letter-card p {
+  max-width: 650px;
+  margin: 16px auto;
+  line-height: 1.9;
+  font-size: 1rem;
+}
+
+.details { max-width: 980px; margin: auto; }
+.section-heading { text-align: center; margin-bottom: 30px; }
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.detail {
+  text-align: center;
+  padding: 30px 16px;
+  border-radius: 25px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.9);
+  box-shadow: 0 15px 40px rgba(77,113,140,.11);
+}
+.detail strong {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 1.45rem;
+  color: #41637b;
+}
+.detail span { display: block; margin-top: 8px; font-size: .82rem; color: #7892a5; }
+
+.gallery { max-width: 980px; margin: auto; }
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+.photos figure {
+  margin: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: white;
+  padding: 8px;
+  box-shadow: 0 18px 50px rgba(77,113,140,.16);
+}
+.photos img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 21px;
+}
+
+.letter-card { position: relative; }
+.signature {
+  font-family: "Playfair Display", serif;
+  color: #6f94ae;
+  font-size: 1.15rem !important;
+  margin-top: 28px !important;
+}
+
+footer {
+  text-align: center;
+  padding: 60px 20px 80px;
+  color: #6f899b;
+  font-size: .85rem;
+}
+.stars { margin-top: 10px; opacity: .7; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.show { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 650px) {
+  .hero-card { padding: 48px 20px; }
+  section { padding: 55px 14px; }
+  .details-grid { grid-template-columns: 1fr; }
+  .photos { grid-template-columns: 1fr; }
+  .section-card, .letter-card { padding: 38px 22px; }
+}
